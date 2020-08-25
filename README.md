@@ -11,9 +11,9 @@ Below is the list of the variables and their description:
 Further information about the dataset and the company is available at https://zindi.africa/hackathons/dsn-pre-bootcamp-hackathon-expresso-churn-prediction-challenge
 
 ## Exploratory Analysis
-* The data contained considerable amount of missing values, not less than 33%, in 14 out of 19 columns. Patterns were observed around the missing data as variables that were closely linked to each other had the same amount of missing values.
+* The data contained considerable amount of missing values--not less than 33%--in 14 out of 19 columns. Patterns were observed around the missing data as variables that were closely linked to each other had the same amount of missing values.
 
-* The target variable had imbalanced classes; 18.7% of the customers churned, which implies that Espresso had more of loyal customers than those who churned.
+* The target variable had imbalanced classes--18.7% of the customers churned, which implies that Espresso had more of loyal customers than those who churned.
 
 *	Majority of the customers who churned were from the city of Dakar (42.1%), have been with Espresso for more than two years (92.7%), earned less and spent less to top up and for data volume. They also called less on either Expresso, Tigo or Orange and did not subscribe to the top active packs (87.6%). Some of the graphs are shown below:
 
@@ -21,22 +21,22 @@ Further information about the dataset and the company is available at https://zi
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20data%20volume.PNG "churn by data volume")
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20inter-expresso%20call.PNG "churn by inter-expresso call")
 
-*	Some variables such as ‘REVENUE’ and ‘MONTANT’ contained extreme outliers, which is expected of income distribution. Research on the evaluation metric, logloss, shows that it is sensitive to outliers. Thus, a scaling technique that is robust to outliers will be required.
+*	Some variables such as ‘REVENUE’ and ‘MONTANT’ contained extreme outliers, which is expected of income distribution. Research on the evaluation metric, logloss, showed that it is sensitive to outliers. Thus, a scaling technique that is robust to outliers will be required to standardize the data.
 
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20income.PNG "churn by income")
 
 ## Data Cleaning
-*	For the variable ‘TOP_PACK’, which represents the most active packs, it was assumed that the missing values represents the customers who did not subscribe to most active packs listed. Therefore, it was grouped under another class, ‘others’ for further analysis. On plotting against ‘CHURN’ variable, it was discovered that majority of those who churned belonged to the ‘others’ class. On the average, this class were active for just about 10 times in 90 days. Therefore, it was safe to move on with the earlier assumption and so missing values in ‘FREQ_TOP_PACK’, which is the number of times the customer has activated the top packages, were filled with zeroes.
+*	For the variable ‘TOP_PACK’, which represents the most active packages, it was assumed that the missing values represented customers who did not subscribe to the most active packages listed. Therefore, they were grouped under another class, ‘others’, for further analysis. On plotting against ‘CHURN’, it was discovered that majority of those who churned belonged to the ‘others’ class. On the average, customers under this class were active for just about 10 times in 90 days. Therefore, it was safe to move along with the earlier assumption and so missing values in ‘FREQ_TOP_PACK’, which is the number of times the customer has activated the top packages, were filled with zeros.
 
 *	Missing values in ‘REGION’ variable were also grouped under a new category named ‘missing’ while those in numeric variables were imputed with arbitrary value, -99.
 
 ## Feature Engineering
 
-*	Label encoding was performed on ‘TOP_PACK’ because of its numerous categories while ‘REGION’ was transformed into dummy variables. Every other feature was used as is.
+*	Label encoding was performed on 'TOP_PACK' because of its numerous categories while 'REGION' was transformed into dummy variables. Every other feature was used as is.
 
 * RobustScaler from Scikit-learn was employed to standardize the features. This type of scaler standardizes features by using statistics that are robust to outliers. This is done by removing the median and scaling the data according to the quantile range.
 
-*	No additional feature was generated from the dataset.
+*	No additional feature was generated from the data set.
 
 ## Model Building and Evaluation
 
