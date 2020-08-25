@@ -17,13 +17,14 @@ Further information about the dataset and the company is available at https://zi
 
 *	Majority of the customers who churned were from the city of Dakar (42.1%), have been with Espresso for more than two years (92.7%), earned less and spent less to top up and for data volume. They also called less on either Expresso, Tigo or Orange and did not subscribe to the top active packs (87.6%). Some of the graphs are shown below:
 
-![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20top-up%20amount.PNG "churn by top-up amount")
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20regularity.PNG "churn by regularity")
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20data%20volume.PNG "churn by data volume")
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20inter-expresso%20call.PNG "churn by inter-expresso call")
 
 *	Some variables such as ‘REVENUE’ and ‘MONTANT’ contained extreme outliers, which is expected of income distribution. Research on the evaluation metric, logloss, showed that it is sensitive to outliers. Thus, a scaling technique that is robust to outliers will be required to standardize the data.
 
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20income.PNG "churn by income")
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20top-up%20amount.PNG "churn by top-up amount")
 
 ## Data Cleaning
 *	For the variable ‘TOP_PACK’, which represents the most active packages, it was assumed that the missing values represented customers who did not subscribe to the most active packages listed. Therefore, they were grouped under another class, ‘others’, for further analysis. On plotting against ‘CHURN’, it was discovered that majority of those who churned belonged to the ‘others’ class. On the average, customers under this class were active for just about 10 times in 90 days. Therefore, it was safe to move along with the earlier assumption and so missing values in ‘FREQ_TOP_PACK’, which is the number of times the customer has activated the top packages, were filled with zeros.
