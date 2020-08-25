@@ -34,6 +34,8 @@ Further information about the dataset and the company is available at https://zi
 
 *	Label encoding was performed on ‘TOP_PACK’ because of its numerous categories while ‘REGION’ was transformed into dummy variables. Every other feature was used as is.
 
+* RobustScaler from Scikit-learn was employed to standardize the features. This type of scaler standardizes features by using statistics that are robust to outliers. This is done by removing the median and scaling the data according to the quantile range.
+
 *	No additional feature was generated from the dataset.
 
 ## Model Building and Evaluation
