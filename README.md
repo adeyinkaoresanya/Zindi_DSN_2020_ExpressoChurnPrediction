@@ -1,2 +1,44 @@
 # Zindi_DSN_2020_ExpressoChurnPrediction
 Solution code of my 6th place submission to Data Science Nigeria's 2020 Pre-Bootcamp Hackthon  on Zindi.africa
+## Problem Statement
+This hackathon was organized by Data Science Nigeria (DSN) on Zindi.africa.  The goal is to develop a predictive model that determines the likelihood of a customer to churn from Expresso, an African telecommunications company that provides customers with airtime and mobile data bundles in Mauritania and Senegal. This will help Expresso to understand which customers are at risk of leaving so they can find ways to better serve their customers and improve customer retention. This problem was treated as a classification problem.
+## About the data
+The available data contained information on 500 000 customers collected from the Senegal market. This was divided into train set [400 000 rows, 19 columns] and test set [100 000 rows, 18 columns], consisting of 14 numeric variables and 5 categorical variables.
+Below is the list of the variables and their description:
+
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/variable%20description.PNG "Variable description")
+
+Further information about the dataset and the company is available at https://zindi.africa/hackathons/dsn-pre-bootcamp-hackathon-expresso-churn-prediction-challenge
+
+## Exploratory Analysis
+* The data contained considerable amount of missing values, not less than 33%, in 14 out of 19 columns. Patterns were observed around the missing data as variables that were closely linked to each other had the same amount of missing values.
+
+* The target variable had imbalanced classes; 18.7% of the customers churned, which implies that Espresso had more of loyal customers than those who churned.
+
+*	Majority of the customers who churned were from the city of Dakar (42.1%), have been with Espresso for more than two years (92.7%), earned less and spent less to top up and for data volume. They also called less on either Expresso, Tigo or Orange and did not subscribe to the top active packs (87.6%). Some of the graphs are shown below:
+
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20data_volume.png "churn vs data volume")
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/Churn%20vs%20Top_up%20amount.png "churn vs top-up amount")
+
+*	Some variables such as ‘REVENUE’ and ‘MONTANT’ contained extreme outliers, which is expected of income distribution. Research on the evaluation metric, logloss, shows that it is sensitive to outliers. Thus, a scaling technique that is robust to outliers will be required.
+
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/Churn%20vs%20income.png "churn vs income")
+
+## Data Cleaning
+*	For the variable ‘TOP_PACK’, which represents the most active packs, it was assumed that the missing values represents the customers who did not subscribe to most active packs listed. Therefore, it was grouped under another class, ‘others’ for further analysis. On plotting against ‘CHURN’ variable, it was discovered that majority of those who churned belonged to the ‘others’ class. On the average, this class were active for just about 10 times in 90 days. Therefore, it was safe to move on with the earlier assumption and so missing values in ‘FREQ_TOP_PACK’, which is the number of times the customer has activated the top packages, were filled with zeroes.
+
+*	Missing values in ‘REGION’ variable were also grouped under a new category named ‘missing’ while those in numeric variables were imputed with arbitrary value, -99.
+
+## Feature Engineering
+
+*	Label encoding was performed on ‘TOP_PACK’ because of its numerous categories while ‘REGION’ was transformed into dummy variables. Every other feature was used as is.
+
+*	No additional feature was generated from the dataset.
+
+## Model Building and Evaluation
+
+*	Three models were built using LightGBM and CatBoost algorithms using a 10-fold cross-validation strategy. StratifiedKFold from Scikitlearn was employed due to the target class imbalance. Hyperparameter optimization was carried out on each algorithm using RandomizedSearchCV in order to get the best parameters for the algorithms. Afterwards, VotingClassifier was used to ensemble the model which resulted in a logloss of 0.246.
+
+*	On graphing the feature importances, it was discovered that ‘REGULARITY’, that is, the number of times the customer was active in 90 days, was the most important variable in predicting whether a customer will churn after 90 days or not. This was immediately followed by ‘DATA_VOLUME’ (number of connections), ON-NET (inter-Expresso call), and ‘REVENUE’ (monthly income of customer).
+
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/Feature%20importances.png "Feature importances")
