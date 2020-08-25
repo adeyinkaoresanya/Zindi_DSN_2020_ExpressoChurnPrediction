@@ -1,0 +1,20 @@
+Variable,Description
+user_id,unique customer identifier
+REGION,the location of each client
+TENURE,duration in the network
+MONTANT,top-up amount
+FREQUENCE_RECH, number of times the customer refilled
+REVENUE,monthly income of each client
+ARPU_SEGMENT,income over 90 days / 3
+FREQUENCE,number of times the client has made an income
+DATA_VOLUME,number of connections
+ON_NET,inter expresso call
+ORANGE,call to orange
+TIGO,call to Tigo
+ZONE1,call to zones1
+ZONE2,call to zones2
+MRG,a client who is going
+REGULARITY,number of times the client is active for 90 days
+TOP_PACK,the most active packs
+FREQ_TOP_PACK,number of times the client has activated the top pack packages
+CHURN,variable to predict - Target
