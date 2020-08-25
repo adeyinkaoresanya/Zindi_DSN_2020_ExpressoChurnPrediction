@@ -23,7 +23,7 @@ Further information about the dataset and the company is available at https://zi
 
 *	Some variables such as ‘REVENUE’ and ‘MONTANT’ contained extreme outliers, which is expected of income distribution. Research on the evaluation metric, logloss, shows that it is sensitive to outliers. Thus, a scaling technique that is robust to outliers will be required.
 
-![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/Churn%20vs%20income.png "churn by income")
+![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20income.PNG "churn by income")
 
 ## Data Cleaning
 *	For the variable ‘TOP_PACK’, which represents the most active packs, it was assumed that the missing values represents the customers who did not subscribe to most active packs listed. Therefore, it was grouped under another class, ‘others’ for further analysis. On plotting against ‘CHURN’ variable, it was discovered that majority of those who churned belonged to the ‘others’ class. On the average, this class were active for just about 10 times in 90 days. Therefore, it was safe to move on with the earlier assumption and so missing values in ‘FREQ_TOP_PACK’, which is the number of times the customer has activated the top packages, were filled with zeroes.
