@@ -13,9 +13,9 @@ Further information about the dataset and the company is available at https://zi
 ## Exploratory Analysis
 * The data contained considerable amount of missing values--not less than 33%--in 14 out of 19 columns. Patterns were observed around the missing data as variables that were closely linked to each other had the same amount of missing values.
 
-* The target variable had imbalanced classes--18.7% of the customers churned, which implies that Espresso had more of loyal customers than those who churned.
+* The target variable had imbalanced classes--18.7% of the customers churned, which implies that Expresso had more of loyal customers than those who churned.
 
-*	Majority of the customers who churned were from the city of Dakar (42.1%), have been with Espresso for more than two years (92.7%), earned less and spent less to top up and for data volume. They also called less on either Expresso, Tigo or Orange and did not subscribe to the top active packs (87.6%). Furthermore, on the average, the lines of customers who churned were not active for more than 6 times in the course of 90 days, whereas a typical loyal customer's line was active for more than 30 times in the same period. Some of the graphs are shown below:
+*	Majority of the customers who churned were from the city of Dakar (42.1%), have been with Expresso for more than two years (92.7%), earned less and spent less to top up and for data volume. They also called less on either Expresso, Tigo or Orange and did not subscribe to the top active packs (87.6%). Furthermore, on the average, the lines of customers who churned were not active for more than 6 times in the course of 90 days, whereas a typical loyal customer's line was active for more than 30 times in the same period. Some of the graphs are shown below:
 
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20regularity.PNG "churn by regularity")
 ![alt text](https://github.com/adeyinkaoresanya/Zindi_DSN_2020_ExpressoChurnPrediction/blob/master/churn%20vs%20data%20volume.PNG "churn by data volume")
