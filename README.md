@@ -52,5 +52,5 @@ Further information about the dataset and the company is available at https://zi
 Customers of Expresso Telecommunications are likely to churn if they are not active for more than 10 times in 90 days. Important factors to also consider include monthly income of the customer, volume of Internet connections and number of times inter-Expresso calls are made.
 
 ## Recommendations
-* A customer micro-segmentation should be conducted in oder to offer personalised incentives that the likely churner would find hard to refuse.
+* A customer micro-segmentation should be conducted in order to offer personalised incentives that the likely churner would find difficult to refuse.
 * Set up a customer engagement strategy for preventing customer inactivity.
